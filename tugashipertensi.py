@@ -277,32 +277,25 @@ if selected == "Implementation":
             'Detak Nadi': [Detak_nadi]
         }
         new_data = pd.DataFrame(data)
-        datatest = pd.read_csv('https://raw.githubusercontent.com/DiahDSyntia/6sks/main/X_test%20(1).csv')  
+        datatest = pd.read_csv('https://raw.githubusercontent.com/DiahDSyntia/Tugas-Akhir/main/X_testbelumnormalisasi.csv')  
         datatest = pd.concat([datatest, new_data], ignore_index=True)
         #st.write(datatest)
-        datanorm = joblib.load('scalerrr.pkl').fit_transform(datatest)
-        st.write("Data setelah normalisasi:")
-        st.write(datanorm)
+        datanorm = joblib.load('scalernormalisasi.pkl').fit_transform(datatest)
         # Prediksi dengan metode yang dipilih
         if metode == "SVM":
-            model = joblib.load('modelc1.pkl')
+            model = joblib.load('modelrbfc1 (2).pkl')
             model_name = "SVM"
         else:  # SVM + Bagging
-            model = joblib.load('modelbagging (1).pkl')
+            model = joblib.load('modelbagging (1) (1).pkl')
             model_name = "SVM + Bagging"
         datapredict = model.predict(datanorm)
-        st.write(f"Hasil prediksi: {datapredict}")
-        st.write(f"Hasil prediksi untuk semua data: {datapredict}")
 
         st.write('Data yang Diinput:')
-        st.write(new_data)
         st.write(f'- Jenis Kelamin: {Jenis_Kelamin}, Usia: {Usia}, IMT: {IMT}, Sistole: {Sistole}, Diastole: {Diastole}, Nafas: {Nafas}, Detak Nadi: {Detak_nadi}')
         st.write(f'Hasil prediksi menggunakan model: {model_name}')
 
         st.write("Data yang Diinput:")
         st.write(f'- Jenis Kelamin: {Jenis_Kelamin}, Usia: {Usia}, IMT: {IMT}, Sistole: {Sistole}, Diastole: {Diastole}, Nafas: {Nafas}, Detak Nadi: {Detak_nadi}')
-        st.write("Data setelah normalisasi untuk prediksi:")
-        st.write(datanorm[-1])
         
         if datapredict[-1] == 1:
             st.write(f"## Hasil Prediksi Menggunakan {model_name}: Hipertensi 1, Silahkan Ke Dokter")
