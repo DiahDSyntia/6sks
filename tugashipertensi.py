@@ -283,7 +283,7 @@ if selected == "Implementation":
         datanorm = joblib.load('scaler6sks.pkl').fit_transform(datatest)
         # Prediksi dengan metode yang dipilih
         if metode == "SVM":
-            model = joblib.load('modelrbfc (1).pkl')
+            model = joblib.load('modelrbfc1 (1).pkl')
             model_name = "SVM"
         else:  # SVM + Bagging
             model = joblib.load('modelbagging (1).pkl')
