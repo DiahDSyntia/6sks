@@ -99,7 +99,7 @@ if selected == "Home":
 if selected == "Datasets":
     st.title(f"{selected}")
     st.write("Data yang digunakan yaitu data Penyakit Hipertensi dari UPT Puskesmas Modopuro Mojokerto.")
-    data_hp = pd.read_csv("https://raw.githubusercontent.com/DiahDSyntia/6sks/main/DATAHipertensi.csv")
+    data_hp = pd.read_csv('https://raw.githubusercontent.com/DiahDSyntia/6sks/main/DATAHipertensi.csv',sep=';')
     st.write("Dataset Hipertensi : ", data_hp) 
     st.write('Jumlah baris dan kolom :', data_hp.shape)
     X=data_hp.iloc[:,0:7].values 
