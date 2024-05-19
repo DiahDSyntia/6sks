@@ -350,8 +350,8 @@ if selected == "Implementation":
         datapredict = model.predict(datanorm)
 
         st.write('Data yang Diinput:')
-        st.write(f'- Jenis Kelamin: {Jenis_Kelamin}, Usia: {Usia}, IMT: {IMT}, Sistole: {Sistole}, Diastole: {Diastole}, Nafas: {Nafas}, Detak Nadi: {Detak_nadi}')
-        st.write(f'Hasil prediksi menggunakan model: {model_name}')
+        st.write('- Jenis Kelamin: {Jenis_Kelamin}, Usia: {Usia}, IMT: {IMT}, Sistole: {Sistole}, Diastole: {Diastole}, Nafas: {Nafas}, Detak Nadi: {Detak_nadi}')
+        st.write('Hasil prediksi menggunakan model: {model_name}')
         
         if datapredict[-1] == 1:
         st.write("## Hasil Prediksi Menggunakan {model_name}: Hipertensi 1, Silahkan Ke Dokter")
