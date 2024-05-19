@@ -280,7 +280,7 @@ if selected == "Implementation":
         datatest = pd.read_csv('https://raw.githubusercontent.com/DiahDSyntia/Tugas-Akhir/main/X_testbelumnormalisasi.csv')  
         datatest = pd.concat([datatest, new_data], ignore_index=True)
         #st.write(datatest)
-        datanorm = joblib.load('scalernormalisasi.pkl').fit_transform(datatest)
+        datanorm = joblib.load('scalernormalisasi (1).pkl').fit_transform(datatest)
         # Prediksi dengan metode yang dipilih
         if metode == "SVM":
             model = joblib.load('modelrbfc1 (2).pkl')
