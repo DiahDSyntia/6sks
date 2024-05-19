@@ -281,6 +281,8 @@ if selected == "Implementation":
         datatest = pd.concat([datatest, new_data], ignore_index=True)
         #st.write(datatest)
         datanorm = joblib.load('scalerrr.pkl').fit_transform(datatest)
+        st.write("Data setelah normalisasi:")
+        st.write(datanorm)
         # Prediksi dengan metode yang dipilih
         if metode == "SVM":
             model = joblib.load('modelc1.pkl')
@@ -289,12 +291,18 @@ if selected == "Implementation":
             model = joblib.load('modelbagging (1).pkl')
             model_name = "SVM + Bagging"
         datapredict = model.predict(datanorm)
-        st.write("Data setelah normalisasi:")
-        st.write(datanorm)
+        st.write(f"Hasil prediksi: {datapredict}")
+        st.write(f"Hasil prediksi untuk semua data: {datapredict}")
 
         st.write('Data yang Diinput:')
+        st.write(new_data)
         st.write(f'- Jenis Kelamin: {Jenis_Kelamin}, Usia: {Usia}, IMT: {IMT}, Sistole: {Sistole}, Diastole: {Diastole}, Nafas: {Nafas}, Detak Nadi: {Detak_nadi}')
         st.write(f'Hasil prediksi menggunakan model: {model_name}')
+
+        st.write("Data yang Diinput:")
+        st.write(f'- Jenis Kelamin: {Jenis_Kelamin}, Usia: {Usia}, IMT: {IMT}, Sistole: {Sistole}, Diastole: {Diastole}, Nafas: {Nafas}, Detak Nadi: {Detak_nadi}')
+        st.write("Data setelah normalisasi untuk prediksi:")
+        st.write(datanorm[-1])
         
         if datapredict[-1] == 1:
             st.write(f"## Hasil Prediksi Menggunakan {model_name}: Hipertensi 1, Silahkan Ke Dokter")
