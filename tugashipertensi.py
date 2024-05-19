@@ -289,6 +289,8 @@ if selected == "Implementation":
             model = joblib.load('modelbagging (1).pkl')
             model_name = "SVM + Bagging"
         datapredict = model.predict(datanorm)
+        st.write("Data setelah normalisasi:")
+        st.write(datanorm)
 
         st.write('Data yang Diinput:')
         st.write(f'- Jenis Kelamin: {Jenis_Kelamin}, Usia: {Usia}, IMT: {IMT}, Sistole: {Sistole}, Diastole: {Diastole}, Nafas: {Nafas}, Detak Nadi: {Detak_nadi}')
