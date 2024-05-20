@@ -294,9 +294,6 @@ if selected == "Implementation":
         st.write('Data yang Diinput:')
         st.write(f'- Jenis Kelamin: {Jenis_Kelamin}, Usia: {Usia}, IMT: {IMT}, Sistole: {Sistole}, Diastole: {Diastole}, Nafas: {Nafas}, Detak Nadi: {Detak_nadi}')
         st.write(f'Hasil prediksi menggunakan model: {model_name}')
-
-        st.write("Data yang Diinput:")
-        st.write(f'- Jenis Kelamin: {Jenis_Kelamin}, Usia: {Usia}, IMT: {IMT}, Sistole: {Sistole}, Diastole: {Diastole}, Nafas: {Nafas}, Detak Nadi: {Detak_nadi}')
         
         if datapredict[-1] == 1:
             st.write(f"## Hasil Prediksi Menggunakan {model_name}: Hipertensi 1, Silahkan Ke Dokter")
