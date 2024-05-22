@@ -288,7 +288,7 @@ if selected == "Implementation":
             model = joblib.load('modelsvmc1.pkl')
             model_name = "SVM"
         else:  # SVM + Bagging
-            model = joblib.load('modelbagging (1) (1).pkl')
+            model = joblib.load('bagging.pkl')
             model_name = "SVM + Bagging"
         datapredict = model.predict(datanorm)
 
