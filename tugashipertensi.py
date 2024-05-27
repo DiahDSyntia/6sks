@@ -302,3 +302,4 @@ if selected == "Implementation":
             st.write(f"## Hasil Prediksi Menggunakan {model_name}: Hipertensi 2, Silahkan ke dokter")
         else:
             st.write(f"## Hasil Prediksi Menggunakan {model_name}: Tidak Hipertensi")
+            st.write("Jika kamu khawatir silahkan ke dokter yaa!")
