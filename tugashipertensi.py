@@ -269,14 +269,6 @@ if selected == "Modelling":
         </table>
         """
         st.markdown(html_code, unsafe_allow_html=True)
-
-
-    # Load data dan model
-    data = load_data()
-    model = load_model()
-
-    # Lakukan prediksi
-    y_pred = predict(model, data)
     
     # Membuat DataFrame untuk menampilkan x_test, prediksi vs aktual
     comparison_df = X_test.copy()
