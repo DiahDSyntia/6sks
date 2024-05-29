@@ -280,20 +280,12 @@ if selected == "Modelling":
     st.dataframe(comparison_df)
 
     # Kelompokkan data berdasarkan confusion matrix
-    true_positive, false_positive, true_negative, false_negative = group_data_by_confusion_matrix(y_test, y_pred, X_test)
+    grouped_data = group_data_by_confusion_matrix(y_test, y_pred, X_test)
 
     # Tampilkan hasil pengelompokan data
-    st.write("True Positive (Predicted 1, Actual 1):")
-    st.dataframe(true_positive)
-
-    st.write("False Positive (Predicted 1, Actual 0):")
-    st.dataframe(false_positive)
-
-    st.write("True Negative (Predicted 0, Actual 0):")
-    st.dataframe(true_negative)
-
-    st.write("False Negative (Predicted 0, Actual 1):")
-    st.dataframe(false_negative)
+    for group_name, group_df in grouped_data.items():
+        st.write(f"{group_name}:")
+        st.dataframe(group_df)
 
 if selected == "Implementation":
     st.write("""
