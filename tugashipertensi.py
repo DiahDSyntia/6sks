@@ -275,10 +275,6 @@ if selected == "Modelling":
     data = load_data()
     model = load_model()
 
-    # Pisahkan fitur dan label aktual
-    X_test = data.drop(columns=['Actual'])
-    y_test = data['Actual']
-
     # Lakukan prediksi
     y_pred = predict(model, data)
     
