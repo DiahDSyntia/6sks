@@ -98,13 +98,14 @@ def group_data_by_confusion_matrix(y_true, y_pred, X_test):
     data['Actual'] = y_true
     data['Predicted'] = y_pred
 
-    # Kelompokkan data berdasarkan hasil prediksi dan aktual
-    true_positive = data[(data['Actual'] == data['Predicted']) & (data['Actual'] == 1)]
-    false_positive = data[(data['Actual'] != data['Predicted']) & (data['Predicted'] == 1)]
-    true_negative = data[(data['Actual'] == data['Predicted']) & (data['Actual'] == 0)]
-    false_negative = data[(data['Actual'] != data['Predicted']) & (data['Actual'] == 1)]
-
-    return true_positive, false_positive, true_negative, false_negative
+    # Buat dictionary untuk menyimpan data per kelompok
+    grouped_data = {}
+    for actual_class in sorted(data['Actual'].unique()):
+        for predicted_class in sorted(data['Predicted'].unique()):
+            group_name = f'Actual {actual_class} - Predicted {predicted_class}'
+            grouped_data[group_name] = data[(data['Actual'] == actual_class) & (data['Predicted'] == predicted_class)]
+    
+    return grouped_data
 
 with st.sidebar:
     selected = option_menu(
