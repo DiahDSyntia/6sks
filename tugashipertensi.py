@@ -73,6 +73,39 @@ def normalize_data(data):
     data = data.drop_duplicates()
     return data
 
+# Fungsi untuk memuat data
+def load_data():
+    # Contoh: load data dari file CSV
+    data = pd.read_csv('https://raw.githubusercontent.com/DiahDSyntia/6sks/main/X_testnormalisasi.csv')
+    return data
+
+# Fungsi untuk memuat model
+def load_model():
+    # Contoh: load model dari file pkl
+    model = joblib.load('modelsvmc1.pkl')
+    return model
+
+# Fungsi untuk melakukan prediksi
+def predict(model, data):
+    # Asumsi kolom fitur adalah semua kolom kecuali 'Actual'
+    features = data.drop(columns=['Actual'])
+    predictions = model.predict(features)
+    return predictions
+
+# Fungsi untuk mengelompokkan data berdasarkan hasil prediksi dan aktual
+def group_data_by_confusion_matrix(y_true, y_pred, X_test):
+    data = X_test.copy()
+    data['Actual'] = y_true
+    data['Predicted'] = y_pred
+
+    # Kelompokkan data berdasarkan hasil prediksi dan aktual
+    true_positive = data[(data['Actual'] == data['Predicted']) & (data['Actual'] == 1)]
+    false_positive = data[(data['Actual'] != data['Predicted']) & (data['Predicted'] == 1)]
+    true_negative = data[(data['Actual'] == data['Predicted']) & (data['Actual'] == 0)]
+    false_negative = data[(data['Actual'] != data['Predicted']) & (data['Actual'] == 1)]
+
+    return true_positive, false_positive, true_negative, false_negative
+
 with st.sidebar:
     selected = option_menu(
         menu_title="Main Menu",  # required
@@ -237,6 +270,18 @@ if selected == "Modelling":
         """
         st.markdown(html_code, unsafe_allow_html=True)
 
+
+    # Load data dan model
+    data = load_data()
+    model = load_model()
+
+    # Pisahkan fitur dan label aktual
+    X_test = data.drop(columns=['Actual'])
+    y_test = data['Actual']
+
+    # Lakukan prediksi
+    y_pred = predict(model, data)
+    
     # Membuat DataFrame untuk menampilkan x_test, prediksi vs aktual
     comparison_df = X_test.copy()
     comparison_df['Actual'] = y_test
@@ -245,6 +290,22 @@ if selected == "Modelling":
     # Menampilkan DataFrame perbandingan hasil prediksi dan label aktual
     st.write("Data Perbandingan Hasil Prediksi dan Label Aktual")
     st.dataframe(comparison_df)
+
+    # Kelompokkan data berdasarkan confusion matrix
+    true_positive, false_positive, true_negative, false_negative = group_data_by_confusion_matrix(y_test, y_pred, X_test)
+
+    # Tampilkan hasil pengelompokan data
+    st.write("True Positive (Predicted 1, Actual 1):")
+    st.dataframe(true_positive)
+
+    st.write("False Positive (Predicted 1, Actual 0):")
+    st.dataframe(false_positive)
+
+    st.write("True Negative (Predicted 0, Actual 0):")
+    st.dataframe(true_negative)
+
+    st.write("False Negative (Predicted 0, Actual 1):")
+    st.dataframe(false_negative)
 
 if selected == "Implementation":
     st.write("""
