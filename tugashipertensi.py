@@ -243,7 +243,7 @@ if selected == "Modelling":
     comparison_df['Predicted'] = y_pred
     st.write("<br><br>", unsafe_allow_html=True)
     # Menampilkan DataFrame perbandingan hasil prediksi dan label aktual
-    st.write("DataFrame Perbandingan Hasil Prediksi dan Label Aktual")
+    st.write("Data Perbandingan Hasil Prediksi dan Label Aktual")
     st.dataframe(comparison_df)
 
 if selected == "Implementation":
