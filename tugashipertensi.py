@@ -192,7 +192,7 @@ if selected == "Modelling":
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 
     # Inisialisasi model SVM sebagai base estimator
-    model = SVC(kernel='rbf', C=1, decision_function_shape='ovr')
+    model = SVC(kernel='rbf', C=1, decision_function_shape='ovo')
 
     # K-Fold Cross Validation
     k_fold = KFold(n_splits=5, shuffle=True, random_state=0)
@@ -336,7 +336,7 @@ if selected == "Implementation":
         datanorm = joblib.load('scaler3.pkl').fit_transform(datatest)
         # Prediksi dengan metode yang dipilih
         if metode == "SVM":
-            model = joblib.load('modelRBFovo10.pkl')
+            model = joblib.load('modelRBFovo.pkl')
             model_name = "SVM"
         else:  # SVM + Bagging
             model = joblib.load('bagging.pkl')
