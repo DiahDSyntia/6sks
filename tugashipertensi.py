@@ -339,7 +339,7 @@ if selected == "Implementation":
             model = joblib.load('modelRBFovo.pkl')
             model_name = "SVM"
         else:  # SVM + Bagging
-            model = joblib.load('bagging.pkl')
+            model = joblib.load('baggingovo.pkl')
             model_name = "SVM + Bagging"
         datapredict = model.predict(datanorm)
 
