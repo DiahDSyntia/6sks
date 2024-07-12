@@ -284,9 +284,9 @@ if selected == "Modelling":
     grouped_data = group_data_by_confusion_matrix(y_test, y_pred, X_test)
 
     # Tampilkan hasil pengelompokan data
-    for group_name, group_df in grouped_data.items():
-        st.write(f"{group_name}:")
-        st.dataframe(group_df)
+    #for group_name, group_df in grouped_data.items():
+        #st.write(f"{group_name}:")
+        #st.dataframe(group_df)
 
 if selected == "Implementation":
     st.write("""
