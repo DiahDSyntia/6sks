@@ -275,18 +275,18 @@ if selected == "Modelling":
     comparison_df = X_test.copy()
     comparison_df['Actual'] = y_test
     comparison_df['Predicted'] = y_pred
-    st.write("<br><br>", unsafe_allow_html=True)
+    #st.write("<br><br>", unsafe_allow_html=True)
     # Menampilkan DataFrame perbandingan hasil prediksi dan label aktual
-    st.write("Data Perbandingan Hasil Prediksi dan Label Aktual")
-    st.dataframe(comparison_df)
+    #st.write("Data Perbandingan Hasil Prediksi dan Label Aktual")
+    #st.dataframe(comparison_df)
 
     # Kelompokkan data berdasarkan confusion matrix
     grouped_data = group_data_by_confusion_matrix(y_test, y_pred, X_test)
 
     # Tampilkan hasil pengelompokan data
     for group_name, group_df in grouped_data.items():
-        st.write(f"{group_name}:")
-        st.dataframe(group_df)
+        #st.write(f"{group_name}:")
+        #st.dataframe(group_df)
 
 if selected == "Implementation":
     st.write("""
