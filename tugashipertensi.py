@@ -285,8 +285,8 @@ if selected == "Modelling":
 
     # Tampilkan hasil pengelompokan data
     for group_name, group_df in grouped_data.items():
-        #st.write(f"{group_name}:")
-        #st.dataframe(group_df)
+        st.write(f"{group_name}:")
+        st.dataframe(group_df)
 
 if selected == "Implementation":
     st.write("""
