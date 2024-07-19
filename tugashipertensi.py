@@ -314,7 +314,7 @@ if selected == "Implementation":
     Nafas = st.number_input("Nafas", min_value=0, max_value=300)
     Detak_nadi = st.number_input("Detak Nadi", min_value=0, max_value=300)
     # Pilihan metode
-    metode = st.selectbox("Pilih Metode", ["SVM", "SVM + Bagging"])
+    metode = st.selectbox("Pilih Metode", ["SVM", "SVM + Bagging", "C=0.01 SVM"], "C=0.01 SVM+Bagging")
     submit = st.button("Submit")
     
     if submit:
