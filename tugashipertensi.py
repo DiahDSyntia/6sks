@@ -338,9 +338,15 @@ if selected == "Implementation":
         if metode == "SVM":
             model = joblib.load('modelRBFovo.pkl')
             model_name = "SVM"
-        else:  # SVM + Bagging
+        elif metode == "SVM + Bagging":
             model = joblib.load('baggingovo.pkl')
             model_name = "SVM + Bagging"
+        elif metode == "C=0.01 SVM":
+            model = joblib.load('randomforest.pkl')
+            model_name = "C=0.01 SVM"
+        elif metode == "C=0.01 SVM+Bagging":
+            model = joblib.load('knn.pkl')
+            model_name = "C=0.01 SVM+Bagging"
         datapredict = model.predict(datanorm)
 
         st.write('Data yang Diinput:')
