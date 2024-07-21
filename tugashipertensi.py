@@ -311,7 +311,7 @@ if selected == "Implementation":
     IMT = st.number_input("IMT(Indeks Massa Tubuh)", min_value=10.0, max_value=100.0)
     Sistole = st.number_input("Sistole", min_value=70, max_value=210)
     Diastole = st.number_input("Diastole", min_value=40, max_value=200)
-    Nafas = st.number_input("Nafas", min_value=0, max_value=34.0)
+    Nafas = st.number_input("Nafas", min_value=0, max_value=34)
     Detak_nadi = st.number_input("Detak Nadi", min_value=0, max_value=115)
     # Pilihan metode
     metode = st.selectbox("Pilih Metode", ["SVM", "SVM + Bagging", "C=0.01 SVM", "C=0.01 SVM+Bagging"])
