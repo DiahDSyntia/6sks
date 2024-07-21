@@ -307,12 +307,12 @@ if selected == "Implementation":
     Jenis_Kelamin = st.selectbox("Jenis Kelamin", ["Laki-laki", "Perempuan"])
     # Convert gender to binary
     #gender_binary = 1 if Jenis_Kelamin == "Laki-laki" else 0
-    Usia = st.number_input("Umur")
-    IMT = st.number_input("IMT(Indeks Massa Tubuh)")
-    Sistole = st.number_input("Sistole", max_value=210)
-    Diastole = st.number_input("Diastole")
-    Nafas = st.number_input("Nafas")
-    Detak_nadi = st.number_input("Detak Nadi")
+    Usia = st.number_input("Umur", min_value=0, max_value=150)
+    IMT = st.number_input("IMT(Indeks Massa Tubuh)", min_value=10.0, max_value=100.0)
+    Sistole = st.number_input("Sistole", min_value=70, max_value=210)
+    Diastole = st.number_input("Diastole", min_value=40, max_value=200)
+    Nafas = st.number_input("Nafas", min_value=0, max_value=34.0)
+    Detak_nadi = st.number_input("Detak Nadi", min_value=0, max_value=115)
     # Pilihan metode
     metode = st.selectbox("Pilih Metode", ["SVM", "SVM + Bagging", "C=0.01 SVM", "C=0.01 SVM+Bagging"])
     submit = st.button("Submit")
