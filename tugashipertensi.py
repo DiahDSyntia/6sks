@@ -309,7 +309,7 @@ if selected == "Implementation":
     #gender_binary = 1 if Jenis_Kelamin == "Laki-laki" else 0
     Usia = st.number_input("Umur")
     IMT = st.number_input("IMT(Indeks Massa Tubuh)")
-    Sistole = st.number_input("Sistole")
+    Sistole = st.number_input("Sistole", max_value=210)
     Diastole = st.number_input("Diastole")
     Nafas = st.number_input("Nafas")
     Detak_nadi = st.number_input("Detak Nadi")
